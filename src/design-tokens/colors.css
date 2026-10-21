@@ -1,0 +1,9 @@
+/** biome-ignore-all assist/source/useSortedProperties: <deliberate> */
+@theme {
+	--color-*: initial;
+	--color-dark: #171406;
+	--color-dark-glare: #2d2816;
+	--color-mid: #aba9a2;
+	--color-light: #ffffff;
+	--color-primary: #fccd26;
+}

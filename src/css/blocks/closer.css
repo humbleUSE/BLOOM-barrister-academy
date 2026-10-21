@@ -1,0 +1,13 @@
+.closer {
+	padding-block: clamp(10rem, 50vb, 20rem) var(--gutter);
+	font-weight: var(--font-bold);
+	color: var(--color-dark);
+	background-color: var(--color-primary);
+}
+
+.closer svg[role="img"][width][height] {
+	width: 100%;
+	height: auto;
+	padding: unset;
+	background-color: unset;
+}

@@ -1,0 +1,92 @@
+.card {
+	--focus-color: var(--color-primary);
+	position: relative;
+	padding-block-end: var(--space-l);
+	overflow: hidden;
+	background-color: oklch(from var(--color-dark) calc(l - 0.5) c h / 0.5);
+	border-radius: var(--radius-m);
+
+	transition: all var(--default-transition-timing-function)
+		var(--default-transition-duration);
+}
+
+.card__heading {
+	font-size: var(--text-step--1);
+	color: var(--color-light);
+	text-transform: uppercase;
+	letter-spacing: var(--uppercase-kerning);
+}
+
+.card__meta {
+	--flow-space: var(--space-s);
+
+	font-size: var(--size-step-2);
+	line-height: var(--leading-flat);
+}
+
+.card__content {
+	padding-inline: var(--space-l);
+	margin-block-start: var(--space-m);
+}
+
+/* ------------------------------- Card Alert ------------------------------- */
+.card__alert {
+	/* This element is in a flow context so we remove the inherited margin */
+	--flow-space: 0;
+	position: absolute;
+
+	top: calc(var(--stroke-width, 1px) * -1);
+
+	right: calc(var(--stroke-width, 1px) * -1);
+	z-index: 1;
+
+	display: grid;
+	place-items: center;
+	width: 10em;
+	height: 10em;
+	font-size: var(--text-step--2);
+	font-weight: bold;
+	color: var(--color-dark);
+	text-transform: uppercase;
+	letter-spacing: var(--uppercase-kerning);
+	background-color: var(--color-light);
+	clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.card__alert > span {
+	line-height: var(--leading-flat);
+	transform: rotate(45deg) translateY(-1lh);
+}
+
+.card img {
+	aspect-ratio: 16 / 9;
+
+	object-fit: cover;
+	border-radius: var(--radius-m) var(--radius-m) 0 0;
+}
+.card :is(img, .card__content) {
+	transform: translateY(-6px);
+	transition: all var(--default-transition-timing-function)
+		var(--default-transition-duration);
+}
+.card .button {
+	--flow-space: var(--space-l);
+}
+
+.card:has(img:hover) img {
+	filter: brightness(110%);
+}
+
+.card:has([href]:active) {
+	background-color: oklch(from var(--color-dark) calc(l + 0.1) c h / 0.8);
+}
+
+.card:hover {
+	transition: all var(--transition-fade);
+	@apply shadow-dark/70 shadow-md;
+
+	& img,
+	.card__content {
+		transform: translateY(0px);
+	}
+}

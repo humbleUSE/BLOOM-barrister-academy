@@ -1,0 +1,45 @@
+.corner {
+	position: relative;
+	display: block;
+	width: var(--corner-size, 100px);
+	aspect-ratio: 1 / 1;
+	background-color: transparent;
+}
+
+.corner::before,
+.corner::after {
+	position: absolute;
+	inset: 0;
+	display: block;
+	padding: 0%;
+	margin: 0%;
+	content: "";
+	transition: clip-path var(--transition-bounce);
+}
+
+/* The large clip path */
+.corner::before {
+	background-color: var(--corner-primary-color, var(--color-light));
+	clip-path: polygon(100% 0, var(--corner-offset, 30%) 0, 100% 100%);
+}
+
+/* The small clip path */
+.corner::after {
+	background-color: var(--corner-secondary-color, var(--color-dark));
+	clip-path: polygon(var(--corner-offset, 30%) 0, 0 0, 100% 100%);
+}
+
+/* ------------------------------- Exceptions ------------------------------- */
+.corner[data-corner-docked] {
+	--corner-size: 15%;
+	position: absolute;
+	top: -0px;
+	right: 0;
+}
+
+.corner[data-corner-theme="primary"] {
+	--corner-secondary-color: var(--color-primary);
+}
+.corner[data-corner-theme="crimson"] {
+	--corner-secondary-color: crimson;
+}

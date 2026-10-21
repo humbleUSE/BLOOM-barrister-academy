@@ -1,0 +1,8 @@
+@utility flow-space-* {
+	--flow-space: --value(--space-*);
+}
+
+@utility region-space-* {
+	--region-space: --value(--space-*);
+}
+

@@ -1,0 +1,11 @@
+@layer utilities {
+	.indent {
+		border-inline-start: var(--indent-size, var(--space-xs-l)) solid
+			var(--indent-color, currentColor);
+	}
+}
+
+@utility indent-color-* {
+	--indent-color: --value(--color-*);
+}
+

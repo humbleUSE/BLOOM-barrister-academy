@@ -1,0 +1,73 @@
+.rolodex {
+	--flow-space: var(--space-3xl);
+	--gutter: var(--space-l);
+}
+
+.rolodex__item {
+	--rolodex-text: var(--color-dark);
+	--rolodex-bg: var(--color-light);
+	--rolodex-clip: var(--rolodex-triangle-color, var(--color-dark));
+	position: relative;
+
+	padding: var(--space-l);
+	overflow: hidden;
+	color: var(--rolodex-text);
+	text-decoration: none;
+	background-color: var(--rolodex-bg);
+}
+
+.rolodex__item::before {
+	position: absolute;
+	top: -1px;
+	right: -1px;
+	width: clamp(2rem, 10vi, 7.5rem);
+	aspect-ratio: 1 / 1;
+	pointer-events: none; /* prevents it from getting in the way of taps/clicks */
+	content: "";
+	background-color: var(--rolodex-clip);
+	clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+
+.rolodex__item:hover {
+	filter: brightness(105%);
+}
+
+.rolodex__heading {
+	display: flex;
+	flex-direction: column;
+	gap: var(--space-l);
+	justify-content: space-between;
+	margin: 0;
+	font-size: var(--size-step-4);
+	font-weight: var(--font-black);
+}
+
+.rolodex__number {
+	font-size: var(--size-step-10);
+}
+
+.rolodex__heading {
+	line-height: var(--leading-normal);
+}
+.rolodex img {
+	aspect-ratio: 787 / 524;
+	object-fit: cover;
+	border-radius: var(--radius-m);
+}
+
+.rolodex__item[data-rolodex-theme="primary"] {
+	--rolodex-bg: var(--color-primary);
+	--rolodex-text: var(--color-dark);
+}
+
+.rolodex__item[data-rolodex-theme="dark"] {
+	--rolodex-bg: var(--color-dark-glare);
+	--rolodex-text: var(--color-light);
+}
+
+/* Apply a sticky position treatment only for viewports that are large and up */
+
+.rolodex__list li {
+	@apply lg:sticky lg:top-(--gutter);
+}
+

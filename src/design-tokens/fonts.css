@@ -1,0 +1,7 @@
+@theme {
+	--font-base:
+		"Satoshi", "Inter", "Segoe UI", "Roboto", "Helvetica Neue", "Arial",
+		"sans-serif";
+	--font-sans: var(--font-base);
+	--font-mono: "DM Mono", "Jetbrains Mono", "monospace";
+}

@@ -1,0 +1,10 @@
+
+
+body {
+	margin: 0;
+	font-size: var(--size-step-1);
+	font-size-adjust: from-font;
+	line-height: var(--leading-standard);
+	color: var(--color-primary);
+	background-color: var(--color-dark);
+}

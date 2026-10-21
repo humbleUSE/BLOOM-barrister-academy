@@ -1,0 +1,72 @@
+.button {
+	--button-bg: var(--color-primary);
+	--button-text: var(--color-dark);
+	--button-x-padding: 2em;
+	--button-y-padding: 1.1em;
+	--button-gutter: 0.5ch;
+	--focus-color: var(--color-primary);
+	position: relative;
+
+	display: inline-flex;
+	gap: var(--button-gutter);
+	align-items: center;
+	padding: var(--button-y-padding) var(--button-x-padding);
+	overflow: hidden;
+	font-size: var(--size-step--2);
+	font-weight: var(--font-bold);
+	line-height: var(--leading-flat);
+	color: var(--button-text);
+	text-transform: uppercase;
+	letter-spacing: var(--uppercase-kerning);
+	white-space: nowrap;
+	text-decoration: none;
+	cursor: pointer;
+	background-color: var(--button-bg);
+	border: none;
+	border-radius: var(--radius-s);
+	transition: color linear var(--default-transition-duration);
+}
+
+.button:has(.corner) {
+	padding-inline-end: calc(var(--button-x-padding) * 2);
+}
+
+/* button .corner {
+	--corner-size: 100%;
+	width: unset;
+	height: var(--corner-size);
+} */
+
+/* ------------------------- Explicit configuration for corner ------------------------- */
+a.button .corner {
+	--corner-size: 100%;
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: unset;
+	height: var(--corner-size);
+}
+
+.button:not([data-button-variant="secondary"]) {
+	&:hover {
+		/* filter: brightness(105%); */
+		background-color: oklch(from var(--color-primary) calc(l + 0.2) c h);
+	}
+	&:active {
+		color: oklch(100% 0.00011 271.152);
+		background-color: oklch(from var(--color-primary) calc(l - 0.2) c h);
+		transform: scale(98.5%);
+	}
+}
+
+.button:hover .corner {
+	--corner-offset: 60%;
+}
+
+/* --------------------------- Variant exceptions -------------------------- */
+.button[data-button-variant="secondary"] {
+	--button-bg: var(--color-dark-glare);
+	--button-text: var(--color-primary);
+	--focus-color: var(--color-dark);
+	--corner-secondary-color: var(--color-primary);
+}

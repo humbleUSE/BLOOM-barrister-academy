@@ -1,0 +1,16 @@
+/** biome-ignore-all assist/source/useSortedProperties: <deliberate> */
+@theme {
+	--font-weight-*: initial;
+	--font-weight-regular: 400;
+	--font-weight-medium: 500;
+	--font-weight-bold: 700;
+	--font-weight-black: 900;
+
+	/* pure css variables */
+	--font-regular: 400;
+	--font-medium: 500;
+	
+	--font-bold: 700;
+	--font-black: 900;
+
+}

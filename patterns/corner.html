@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="../src/css/global.css" rel="stylesheet" />
+        <title>Corner Pattern</title>
+        <style>
+            body {
+                padding-inline: 2rem;
+                padding-top: 2rem;
+            }
+            div {
+                position: relative;
+                /* width: 30%; */
+                height: 50px;
+                border: var(--stroke-solid);
+            }
+            body > span:first-child {
+                border: var(--stroke-solid);
+                border-color: orange;
+            }
+        </style>
+    </head>
+    <body class="grid grid-cols-2 justify-items-stretch items-center">
+        <span aria-hidden="true" class="corner"></span>
+        <div>
+            <span aria-hidden="true" class="corner" data-corner-docked></span>
+        </div>
+        <div>
+            <span aria-hidden="true" class="corner" data-corner-docked></span>
+        </div>
+        <div>
+            <span
+                aria-hidden="true"
+                class="corner"
+                data-corner-docked
+                data-corner-theme="primary"
+            ></span>
+        </div>
+        <div>
+            <span
+                aria-hidden="true"
+                class="corner"
+                data-corner-docked
+                data-corner-theme="crimson"
+            ></span>
+        </div>
+    </body>
+</html>
